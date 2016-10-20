@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JDD 2016</title>
+  <!--
+    http://primercss.io/
+  -->
+  <link rel="stylesheet" type="text/css" href="primer.css">
+  <style>
+    .emoji {
+      width: 1.5em;
+      height: 1.5em;
+      display: inline-block;
+      margin-bottom: -0.25em;
+    }
+  </style>
+</head>
+<body style="padding-top: 5%">
+
+
+  <div class="container">
+    <div class="blankslate">
+      <h1>JDD 2016</h1><br>
+      <h2>Golo :heart: SparkJava</h2><br>
+      <h3>:octocat:</h3>
+    </div>
+  </div>
+
+  <script src="vendors/jquery-3.1.1.min.js"></script>
+  <script src="emojify/js/emojify.min.js"></script>
+  <script>
+  /*
+    - http://hassankhan.me/emojify.js/
+    - http://www.webpagefx.com/tools/emoji-cheat-sheet/
+   */
+  emojify.setConfig({
+    img_dir: 'emojify/images/basic',  // Directory for emoji images
+  });
+
+  $(() => {
+    $.get("/hello").then(data => {
+      console.log(data);
+      $("h1").html(data.message);
+      emojify.run();
+    })
+
+
+  })
+
+
+  </script>
+</body>
+</html>
